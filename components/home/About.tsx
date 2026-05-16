@@ -8,7 +8,7 @@ export default function About() {
         <div className="relative">
           <div className="aspect-[4/5] relative w-full overflow-hidden bg-stone-900">
             <Image
-              src="/uploads/lorenzo-profile.jpg"
+              src="/lorenzo-profile.jpg"
               alt="Lorenzo Falchi"
               fill
               className="object-cover object-center"
