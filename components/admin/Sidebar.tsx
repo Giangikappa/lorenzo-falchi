@@ -11,11 +11,13 @@ import {
   Mail,
   ShoppingBag,
   LogOut,
+  FolderOpen,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const links = [
   { href: "/admin", label: "Dashboard", icon: LayoutDashboard, exact: true },
+  { href: "/admin/categories", label: "Categorie", icon: FolderOpen },
   { href: "/admin/products", label: "Prodotti", icon: Package },
   { href: "/admin/orders", label: "Ordini", icon: ShoppingBag },
   { href: "/admin/preorders", label: "Pre-ordini", icon: Bell },
