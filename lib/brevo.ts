@@ -14,9 +14,12 @@ interface BrevoContact {
 }
 
 export async function addBrevoContact({ email, listIds, attributes }: BrevoContact) {
-  if (!BREVO_API_KEY) return;
+  if (!BREVO_API_KEY) {
+    console.error("[Brevo] BREVO_API_KEY not set");
+    return;
+  }
 
-  await fetch(`${BASE}/contacts`, {
+  const res = await fetch(`${BASE}/contacts`, {
     method: "POST",
     headers: {
       "api-key": BREVO_API_KEY,
@@ -29,4 +32,9 @@ export async function addBrevoContact({ email, listIds, attributes }: BrevoConta
       updateEnabled: true,
     }),
   });
+
+  if (!res.ok) {
+    const body = await res.text();
+    console.error(`[Brevo] Error ${res.status}:`, body);
+  }
 }
