@@ -31,7 +31,7 @@ export async function POST(req: Request) {
     listIds: [BREVO_LISTS.preorders],
     attributes: {
       FIRSTNAME: name,
-      ...(phone && { SMS: phone }),
+      ...(phone && { TELEFONO: phone }),
       PRODOTTO: product.name,
     },
   });

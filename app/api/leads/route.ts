@@ -20,7 +20,7 @@ export async function POST(req: Request) {
     listIds: [BREVO_LISTS.leads],
     attributes: {
       FIRSTNAME: name,
-      ...(phone && { SMS: phone }),
+      ...(phone && { TELEFONO: phone }),
       MESSAGGIO: message || "",
     },
   });
