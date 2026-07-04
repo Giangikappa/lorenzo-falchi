@@ -37,12 +37,6 @@ export default function Hero() {
             Crea il tuo gioiello
           </a>
         </div>
-
-        {/* Scroll indicator */}
-        <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 animate-bounce">
-          <span className="text-xs tracking-widest uppercase text-stone-600">scroll</span>
-          <div className="w-px h-8 bg-stone-700" />
-        </div>
       </div>
     </section>
   );
