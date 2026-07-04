@@ -68,7 +68,7 @@ export default async function AdminDashboard() {
               recentLeads.map((lead) => (
                 <div key={lead.id} className="flex items-start justify-between py-3 border-b border-stone-50 last:border-0">
                   <div>
-                    <p className="text-sm font-medium text-stone-900">{lead.name}</p>
+                    <p className="text-sm font-medium text-stone-900">{lead.firstName} {lead.lastName}</p>
                     <p className="text-xs text-stone-400">{lead.email}</p>
                   </div>
                   <p className="text-xs text-stone-400">
@@ -95,7 +95,7 @@ export default async function AdminDashboard() {
               recentPreorders.map((po) => (
                 <div key={po.id} className="flex items-start justify-between py-3 border-b border-stone-50 last:border-0">
                   <div>
-                    <p className="text-sm font-medium text-stone-900">{po.name}</p>
+                    <p className="text-sm font-medium text-stone-900">{po.firstName} {po.lastName}</p>
                     <p className="text-xs text-stone-400">{po.product.name}</p>
                   </div>
                   <p className="text-xs text-stone-400">
