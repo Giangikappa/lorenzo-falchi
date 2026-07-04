@@ -19,8 +19,8 @@ export async function POST(req: Request) {
     email,
     listIds: [BREVO_LISTS.leads],
     attributes: {
-      FIRSTNAME: firstName,
-      LASTNAME: lastName,
+      NOME: firstName,
+      COGNOME: lastName,
       ...(phone && { TELEFONO: phone }),
       MESSAGGIO: message || "",
     },

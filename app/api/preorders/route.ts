@@ -31,8 +31,8 @@ export async function POST(req: Request) {
     email,
     listIds: [BREVO_LISTS.preorders],
     attributes: {
-      FIRSTNAME: firstName,
-      LASTNAME: lastName,
+      NOME: firstName,
+      COGNOME: lastName,
       ...(phone && { TELEFONO: phone }),
       PRODOTTO: product.name,
     },
