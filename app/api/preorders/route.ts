@@ -5,9 +5,9 @@ import { addBrevoContact, BREVO_LISTS } from "@/lib/brevo";
 
 export async function POST(req: Request) {
   const body = await req.json();
-  const { name, email, phone, note, productId } = body;
+  const { firstName, lastName, email, phone, note, productId } = body;
 
-  if (!name || !email || !productId) {
+  if (!firstName || !lastName || !email || !productId) {
     return NextResponse.json({ error: "Dati mancanti" }, { status: 400 });
   }
 
@@ -19,7 +19,8 @@ export async function POST(req: Request) {
   const preorder = await prisma.preorder.create({
     data: {
       productId,
-      name,
+      firstName,
+      lastName,
       email,
       phone: phone || null,
       note: note || null,
@@ -30,7 +31,8 @@ export async function POST(req: Request) {
     email,
     listIds: [BREVO_LISTS.preorders],
     attributes: {
-      FIRSTNAME: name,
+      FIRSTNAME: firstName,
+      LASTNAME: lastName,
       ...(phone && { TELEFONO: phone }),
       PRODOTTO: product.name,
     },

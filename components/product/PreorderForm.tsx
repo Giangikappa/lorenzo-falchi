@@ -9,7 +9,7 @@ interface Props {
 }
 
 export default function PreorderForm({ productId, productName }: Props) {
-  const [form, setForm] = useState({ name: "", email: "", phone: "", note: "" });
+  const [form, setForm] = useState({ firstName: "", lastName: "", email: "", phone: "", note: "" });
   const [state, setState] = useState<"idle" | "loading" | "success" | "error">("idle");
   const [open, setOpen] = useState(false);
 
@@ -71,17 +71,31 @@ export default function PreorderForm({ productId, productName }: Props) {
       </div>
 
       <form onSubmit={handleSubmit} className="space-y-5">
-        <div>
-          <label className="text-xs tracking-widest uppercase text-stone-400 block mb-2">
-            Nome *
-          </label>
-          <input
-            required
-            value={form.name}
-            onChange={(e) => setForm({ ...form, name: e.target.value })}
-            placeholder="Il tuo nome"
-            className="input-base"
-          />
+        <div className="grid grid-cols-2 gap-4">
+          <div>
+            <label className="text-xs tracking-widest uppercase text-stone-400 block mb-2">
+              Nome *
+            </label>
+            <input
+              required
+              value={form.firstName}
+              onChange={(e) => setForm({ ...form, firstName: e.target.value })}
+              placeholder="Mario"
+              className="input-base"
+            />
+          </div>
+          <div>
+            <label className="text-xs tracking-widest uppercase text-stone-400 block mb-2">
+              Cognome *
+            </label>
+            <input
+              required
+              value={form.lastName}
+              onChange={(e) => setForm({ ...form, lastName: e.target.value })}
+              placeholder="Rossi"
+              className="input-base"
+            />
+          </div>
         </div>
 
         <div>

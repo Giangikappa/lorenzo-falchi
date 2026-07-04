@@ -36,7 +36,7 @@ export default async function AdminPreordersPage() {
             )}
             {preorders.map((po) => (
               <tr key={po.id} className="border-b border-stone-50 hover:bg-stone-50 transition-colors">
-                <td className="px-4 py-3 font-medium text-stone-900">{po.name}</td>
+                <td className="px-4 py-3 font-medium text-stone-900">{po.firstName} {po.lastName}</td>
                 <td className="px-4 py-3">
                   <a href={`mailto:${po.email}`} className="text-gold hover:underline">
                     {po.email}

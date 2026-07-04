@@ -5,21 +5,22 @@ import { addBrevoContact, BREVO_LISTS } from "@/lib/brevo";
 
 export async function POST(req: Request) {
   const body = await req.json();
-  const { name, email, phone, message, source } = body;
+  const { firstName, lastName, email, phone, message, source } = body;
 
-  if (!name || !email) {
-    return NextResponse.json({ error: "Nome ed email obbligatori" }, { status: 400 });
+  if (!firstName || !lastName || !email) {
+    return NextResponse.json({ error: "Nome, cognome ed email obbligatori" }, { status: 400 });
   }
 
   const lead = await prisma.lead.create({
-    data: { name, email, phone: phone || null, message: message || null, source: source || "home" },
+    data: { firstName, lastName, email, phone: phone || null, message: message || null, source: source || "home" },
   });
 
   await addBrevoContact({
     email,
     listIds: [BREVO_LISTS.leads],
     attributes: {
-      FIRSTNAME: name,
+      FIRSTNAME: firstName,
+      LASTNAME: lastName,
       ...(phone && { TELEFONO: phone }),
       MESSAGGIO: message || "",
     },

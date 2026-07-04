@@ -4,7 +4,7 @@ import { useState } from "react";
 import { Send } from "lucide-react";
 
 export default function LeadGen() {
-  const [form, setForm] = useState({ name: "", email: "", phone: "", message: "" });
+  const [form, setForm] = useState({ firstName: "", lastName: "", email: "", phone: "", message: "" });
   const [state, setState] = useState<"idle" | "loading" | "success" | "error">("idle");
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -18,11 +18,13 @@ export default function LeadGen() {
       });
       if (!res.ok) throw new Error();
       setState("success");
-      setForm({ name: "", email: "", phone: "", message: "" });
+      setForm({ firstName: "", lastName: "", email: "", phone: "", message: "" });
     } catch {
       setState("error");
     }
   };
+
+  const inputClass = "w-full border-b border-stone-600 bg-transparent pb-3 text-sm text-white placeholder-stone-600 outline-none focus:border-gold transition-colors";
 
   return (
     <section id="custom" className="py-24 px-6 lg:px-12 bg-stone-900 text-white">
@@ -74,17 +76,31 @@ export default function LeadGen() {
             </div>
           ) : (
             <form onSubmit={handleSubmit} className="space-y-8">
-              <div>
-                <label className="text-xs tracking-widest uppercase text-stone-400 block mb-2">
-                  Nome *
-                </label>
-                <input
-                  required
-                  value={form.name}
-                  onChange={(e) => setForm({ ...form, name: e.target.value })}
-                  placeholder="Il tuo nome"
-                  className="w-full border-b border-stone-600 bg-transparent pb-3 text-sm text-white placeholder-stone-600 outline-none focus:border-gold transition-colors"
-                />
+              <div className="grid grid-cols-2 gap-6">
+                <div>
+                  <label className="text-xs tracking-widest uppercase text-stone-400 block mb-2">
+                    Nome *
+                  </label>
+                  <input
+                    required
+                    value={form.firstName}
+                    onChange={(e) => setForm({ ...form, firstName: e.target.value })}
+                    placeholder="Mario"
+                    className={inputClass}
+                  />
+                </div>
+                <div>
+                  <label className="text-xs tracking-widest uppercase text-stone-400 block mb-2">
+                    Cognome *
+                  </label>
+                  <input
+                    required
+                    value={form.lastName}
+                    onChange={(e) => setForm({ ...form, lastName: e.target.value })}
+                    placeholder="Rossi"
+                    className={inputClass}
+                  />
+                </div>
               </div>
 
               <div>
@@ -97,7 +113,7 @@ export default function LeadGen() {
                   value={form.email}
                   onChange={(e) => setForm({ ...form, email: e.target.value })}
                   placeholder="la.tua@email.com"
-                  className="w-full border-b border-stone-600 bg-transparent pb-3 text-sm text-white placeholder-stone-600 outline-none focus:border-gold transition-colors"
+                  className={inputClass}
                 />
               </div>
 
@@ -110,7 +126,7 @@ export default function LeadGen() {
                   value={form.phone}
                   onChange={(e) => setForm({ ...form, phone: e.target.value })}
                   placeholder="+39 333 000 0000"
-                  className="w-full border-b border-stone-600 bg-transparent pb-3 text-sm text-white placeholder-stone-600 outline-none focus:border-gold transition-colors"
+                  className={inputClass}
                 />
               </div>
 
@@ -123,7 +139,7 @@ export default function LeadGen() {
                   value={form.message}
                   onChange={(e) => setForm({ ...form, message: e.target.value })}
                   placeholder="Raccontami la tua idea, o il social format che ti ha ispirato..."
-                  className="w-full border-b border-stone-600 bg-transparent pb-3 text-sm text-white placeholder-stone-600 outline-none focus:border-gold transition-colors resize-none"
+                  className={`${inputClass} resize-none`}
                 />
               </div>
 

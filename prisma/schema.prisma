@@ -71,7 +71,8 @@ model ProductCoupon {
 
 model Lead {
   id        String   @id @default(cuid())
-  name      String
+  firstName String
+  lastName  String
   email     String
   phone     String?
   message   String?
@@ -83,7 +84,8 @@ model Preorder {
   id        String   @id @default(cuid())
   product   Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
   productId String
-  name      String
+  firstName String
+  lastName  String
   email     String
   phone     String?
   note      String?
