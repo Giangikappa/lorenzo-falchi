@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { prisma } from "@/lib/db";
 import { getAdminSession } from "@/lib/auth";
+import { addBrevoContact, BREVO_LISTS } from "@/lib/brevo";
 
 export async function POST(req: Request) {
   const { email } = await req.json();
@@ -19,6 +20,7 @@ export async function POST(req: Request) {
   }
 
   await prisma.newsletter.create({ data: { email } });
+  await addBrevoContact({ email, listIds: [BREVO_LISTS.newsletter] });
   return NextResponse.json({ message: "Iscritto con successo" }, { status: 201 });
 }
 

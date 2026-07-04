@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { prisma } from "@/lib/db";
 import { getAdminSession } from "@/lib/auth";
+import { addBrevoContact, BREVO_LISTS } from "@/lib/brevo";
 
 export async function POST(req: Request) {
   const body = await req.json();
@@ -22,6 +23,16 @@ export async function POST(req: Request) {
       email,
       phone: phone || null,
       note: note || null,
+    },
+  });
+
+  await addBrevoContact({
+    email,
+    listIds: [BREVO_LISTS.preorders],
+    attributes: {
+      FIRSTNAME: name,
+      ...(phone && { SMS: phone }),
+      PRODOTTO: product.name,
     },
   });
 
