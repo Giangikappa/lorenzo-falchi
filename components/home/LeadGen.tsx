@@ -19,6 +19,10 @@ export default function LeadGen() {
       if (!res.ok) throw new Error();
       setState("success");
       setForm({ firstName: "", lastName: "", email: "", phone: "", message: "" });
+      (window as any).dataLayer = (window as any).dataLayer || [];
+      (window as any).dataLayer.push({ event: "generate_lead" });
+      (window as any).dataLayer = (window as any).dataLayer || [];
+      (window as any).dataLayer.push({ event: "generate_lead" });
     } catch {
       setState("error");
     }

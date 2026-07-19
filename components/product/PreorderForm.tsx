@@ -24,6 +24,8 @@ export default function PreorderForm({ productId, productName }: Props) {
       });
       if (!res.ok) throw new Error();
       setState("success");
+      (window as any).dataLayer = (window as any).dataLayer || [];
+      (window as any).dataLayer.push({ event: "preorder_request" });
     } catch {
       setState("error");
     }

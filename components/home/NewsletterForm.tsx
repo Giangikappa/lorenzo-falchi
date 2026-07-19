@@ -24,6 +24,8 @@ export default function NewsletterForm() {
       if (res.ok) {
         setStatus("success");
         setMessage(data.message ?? "Iscritto con successo!");
+        (window as any).dataLayer = (window as any).dataLayer || [];
+        (window as any).dataLayer.push({ event: "newsletter_signup" });
         setEmail("");
       } else {
         setStatus("error");
