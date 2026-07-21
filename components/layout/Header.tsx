@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { Menu, X, ShoppingBag } from "lucide-react";
 import { useCart } from "@/lib/cartContext";
 
@@ -30,13 +31,8 @@ export default function Header() {
     >
       <div className="max-w-7xl mx-auto px-6 lg:px-12 flex items-center justify-between h-20">
         {/* Logo */}
-        <Link href="/" className="flex flex-col leading-none group">
-          <span className="font-serif text-xl font-light tracking-widest text-stone-900 group-hover:text-gold transition-colors">
-            LORENZO
-          </span>
-          <span className="font-serif text-xl font-light tracking-widest text-gold">
-            FALCHI
-          </span>
+        <Link href="/">
+          <Image src="/logo.png" alt="Falchi Gioielli" width={120} height={60} className="object-contain" priority />
         </Link>
 
         {/* Desktop Nav */}
