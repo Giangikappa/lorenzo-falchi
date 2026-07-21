@@ -32,7 +32,7 @@ export default function Header() {
       <div className="max-w-7xl mx-auto px-6 lg:px-12 flex items-center justify-between h-20">
         {/* Logo */}
         <Link href="/">
-          <Image src="/logo.png" alt="Falchi Gioielli" width={120} height={60} className="object-contain" priority />
+          <Image src="/logo.png" alt="Falchi Gioielli" width={80} height={40} className="object-contain" priority />
         </Link>
 
         {/* Desktop Nav */}
