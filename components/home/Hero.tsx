@@ -28,10 +28,7 @@ export default function Hero() {
         </h1>
 
         <p className="text-stone-400 text-base md:text-lg max-w-xl mx-auto leading-relaxed mb-12">
-          Sono Lorenzo Falchi.<br /><br />
-          Quando lavoro su una creazione, accade qualcosa di raro: la tua idea prende forma attraverso le mie mani.<br /><br />
-          Le mie idee nascono da una necessità creativa, pezzi destinati a pochi, quelli che sanno riconoscere quando un gioiello smette di essere oggetto e diventa simbolo. Oro, argento, pietre: tutto è scelto con ossessione.<br /><br />
-          La rarità è l&apos;unico lusso che rimane.
+          Gioielli su misura. Edizioni limitate. Rari perché unici.
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
