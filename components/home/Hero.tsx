@@ -1,4 +1,11 @@
+"use client";
+
 import Link from "next/link";
+
+function pushEvent(name: string) {
+  (window as any).dataLayer = (window as any).dataLayer || [];
+  (window as any).dataLayer.push({ event: name });
+}
 
 export default function Hero() {
   return (
@@ -16,11 +23,8 @@ export default function Hero() {
         </p>
 
         <h1 className="font-serif text-5xl md:text-7xl lg:text-8xl font-light text-white leading-tight mb-6">
-          Il gioiello nasce
-          <br />
-          <em className="text-gold not-italic">dalla storia</em>
-          <br />
-          che racconti
+          Non imito.{" "}
+          <em className="text-gold not-italic">Creo.</em>
         </h1>
 
         <p className="text-stone-400 text-base md:text-lg max-w-xl mx-auto leading-relaxed mb-12">
@@ -30,10 +34,10 @@ export default function Hero() {
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <Link href="/shop" className="btn-gold">
+          <Link href="/shop" className="btn-gold" onClick={() => pushEvent("cta_esplora_collezione")}>
             Esplora la Collezione
           </Link>
-          <a href="#custom" className="btn-outline border-stone-600 text-stone-300 hover:bg-white hover:text-stone-900">
+          <a href="#custom" className="btn-outline border-stone-600 text-stone-300 hover:bg-white hover:text-stone-900" onClick={() => pushEvent("cta_crea_gioiello")}>
             Crea il tuo gioiello
           </a>
         </div>
