@@ -144,18 +144,18 @@ export default function PreorderForm({ productId, productName }: Props) {
           <p className="text-red-500 text-xs">Errore. Riprova.</p>
         )}
 
-        <div className="flex gap-3">
+        <div className="flex flex-col sm:flex-row gap-3">
           <button
             type="button"
             onClick={() => setOpen(false)}
-            className="btn-outline flex-1 py-2"
+            className="btn-outline w-full sm:flex-1 py-2"
           >
             Annulla
           </button>
           <button
             type="submit"
             disabled={state === "loading"}
-            className="btn-gold flex-1 py-2 disabled:opacity-60"
+            className="btn-gold w-full sm:flex-1 py-2 disabled:opacity-60"
           >
             {state === "loading" ? "Invio..." : "Conferma"}
           </button>
