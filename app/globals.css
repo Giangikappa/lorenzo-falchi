@@ -30,15 +30,15 @@ body {
 
 @layer components {
   .btn-primary {
-    @apply inline-flex items-center justify-center px-8 py-3 bg-stone-900 text-stone-50 text-sm tracking-widest uppercase font-medium transition-all duration-300 hover:bg-gold active:scale-95;
+    @apply inline-flex items-center justify-center px-8 py-3 bg-stone-900 text-stone-50 text-sm tracking-widest uppercase font-medium transition-all duration-300 hover:bg-gold active:scale-95 rounded-[5px];
   }
 
   .btn-outline {
-    @apply inline-flex items-center justify-center px-8 py-3 border border-stone-900 text-stone-900 text-sm tracking-widest uppercase font-medium transition-all duration-300 hover:bg-stone-900 hover:text-stone-50 active:scale-95;
+    @apply inline-flex items-center justify-center px-8 py-3 border border-stone-900 text-stone-900 text-sm tracking-widest uppercase font-medium transition-all duration-300 hover:bg-stone-900 hover:text-stone-50 active:scale-95 rounded-[5px];
   }
 
   .btn-gold {
-    @apply inline-flex items-center justify-center px-8 py-3 bg-gold text-white text-sm tracking-widest uppercase font-medium transition-all duration-300 hover:bg-gold-dark active:scale-95;
+    @apply inline-flex items-center justify-center px-8 py-3 bg-gold text-white text-sm tracking-widest uppercase font-medium transition-all duration-300 hover:bg-gold-dark active:scale-95 rounded-[5px];
   }
 
   .section-title {
