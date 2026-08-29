@@ -41,7 +41,7 @@ export default function About() {
               edizione limitata che portano con sé il tempo in cui sono nati.
             </p>
             <p>
-              Non seguire la moda. <strong className="text-stone-900 font-medium">Indossala prima che passi.</strong>
+              Non seguire la moda. <strong className="text-stone-900 font-medium">Crea il tuo stile.</strong>
             </p>
           </div>
 
